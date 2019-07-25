@@ -23,4 +23,5 @@ exclusive features).
 namespace SysDep {
 	/* Utilities */
 	// `int main()` is considered "system-dependent", so don't forget to supply that too!
+	static const uint8_t ticksPerFrame;
 }
