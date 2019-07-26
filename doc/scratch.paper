@@ -1,0 +1,29 @@
+Entity
+	Ghost
+	Pac-Man*
+	Fruit
+		Static fruit table
+	Powerup
+		Energizer
+		Super Pellet (Super Pac-Man)
+		etc
+SysDep
+Maze
+Mode
+Camera
+=================
+Entity:
+Graphic (static or animated sprite)
+=================
+SysDep:
+=================
+Maze:
+tiles[]
+
+#define directions
+
+"Waypoints"? (entity spawn locations)
+=================
+Mode:
+=================
+Camera:
