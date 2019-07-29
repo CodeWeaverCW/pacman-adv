@@ -28,6 +28,9 @@ typedef uint16_t Pixel_Coord;
 typedef uint8_t Tile_Coord;
 
 namespace Coords {
-	inline Pixel_Coord pixel(Coord c) { return c>>4; }
-	inline Tile_Coord tile(Coord c) { return c>>7; }
+	inline Pixel_Coord pixel(Coord c) { return c>>4; }	// Get the pixel at coordinate `c`
+	inline Tile_Coord tile(Coord c) { return c>>7; }	// Get the tile at coordinate `c`
+
+	// Get the coordinate, given a tile position [0..255], a pixel offset [0..7], and a sub-pixel offset [0..15]
+	inline Coord get(uint16_t tile, uint8_t pixel, uint8_t coord) { return (tile<<7) | (pixel<<4) | coord; }
 }

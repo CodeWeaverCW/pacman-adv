@@ -21,21 +21,21 @@ public:
 
 	/* Methods */
 	// `distance()` uses tile coordinates [0..255], not to be confused with `Coord` (sixteenth-pixel precision)
-	static uint8_t distance(Entity& one, Entity& two);
-	static uint8_t distance(Tile_Coord x, Tile_Coord y, Entity& entity);
+	inline static uint8_t distance(Entity& one, Entity& two) = { return distance(one.x, one.y, two.x, two.y); }
+	inline static uint8_t distance(Tile_Coord x, Tile_Coord y, Entity& entity) = { return distance(x, y, entity.x, entity.y); }
 	static uint8_t distance(Tile_Coord x1, Tile_Coord y1, Tile_Coord x2, Tile_Coord y2);
 
 
 	/* Properties */
 	// Center this entity on the specified tile
-	inline void centerToTile(uint8_t x, uint8_t y, uint8_t z);
+	void centerToTile(Tile_Coord x, Tile_Coord y, Tile_Coord z);
 	// Speed
-	inline void setSpeedFactor(float percent);
+	inline void setSpeedFactor(float percent) = { speed = (uint8_t)(base_speed * percent); }
 
 protected:
 	// Direction
 	using Maze::Direction;
-	inline bool facing(Direction dir);
+	inline bool isFacing(Direction dir) = { return direction & dir; }
 
 
 private:
