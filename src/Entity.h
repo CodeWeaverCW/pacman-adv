@@ -8,6 +8,7 @@ Pac-Man, the ghosts, fruit, and powerups. This does *not* include dots, which ar
 maze data.
 */
 
+#include "Coord.h"
 #include "Maze.h"
 
 
@@ -19,25 +20,15 @@ public:
 
 
 	/* Methods */
+	// `distance()` uses tile coordinates [0..255], not to be confused with `Coord` (sixteenth-pixel precision)
 	static uint8_t distance(Entity& one, Entity& two);
-	static uint8_t distance(uint8_t x, uint8_t y, Entity& entity);
-	static uint8_t distance(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
+	static uint8_t distance(Tile_Coord x, Tile_Coord y, Entity& entity);
+	static uint8_t distance(Tile_Coord x1, Tile_Coord y1, Tile_Coord x2, Tile_Coord y2);
 
 
 	/* Properties */
-	// Get tile coordinate
-	inline uint8_t xTile(void);
-	inline uint8_t yTile(void);
-	inline uint8_t zTile(void);
-	// Get pixel coordinate
-	inline uint16_t xPixel(void);
-	inline uint16_t yPixel(void);
-	inline uint16_t zPixel(void);
 	// Center this entity on the specified tile
-	inline void setOnTile(uint8_t x, uint8_t y, uint8_t z);
-	// Place this entity on an exact pixel location
-	inline void setOnPixel(uint16_t x, uint16_t y, uint16_t z);
-
+	inline void centerToTile(uint8_t x, uint8_t y, uint8_t z);
 	// Speed
 	inline void setSpeedFactor(float percent);
 
@@ -49,15 +40,10 @@ protected:
 
 private:
 	/* Data */
-	/* Position
-	Coordinates are precise to a sixteenth of a pixel. In other words,
-	the coordinate system is in a 12.4 fixed-point notation.
-
-	Use protected methods to extract appropriate data.
-	*/
-	uint16_t x;
-	uint16_t y;
-	uint16_t z;
+	/* Position */
+	Coord x;
+	Coord y;
+	Coord z;
 
 	/* Speed
 	Speed is measured in sixteenth-pixels per tick.
