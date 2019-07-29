@@ -20,6 +20,8 @@ public:
 
 	/* Methods */
 	static uint8_t distance(Entity& one, Entity& two);
+	static uint8_t distance(uint8_t x, uint8_t y, Entity& entity);
+	static uint8_t distance(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
 
 
 	/* Properties */
