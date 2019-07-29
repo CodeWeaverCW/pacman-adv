@@ -2,11 +2,11 @@ Entity
 	Ghost
 	Pac-Man*
 	Fruit
-		Static fruit table
 	Powerup
 		Energizer
 		Super Pellet (Super Pac-Man)
 		etc
+Coord
 SysDep
 Maze
 Mode
@@ -14,6 +14,13 @@ Camera
 =================
 Entity:
 Graphic (static or animated sprite)
+=================
+Fruit:
+Enum fruits
+static fruit[] table
+=================
+Powerup:
+
 =================
 SysDep:
 =================
