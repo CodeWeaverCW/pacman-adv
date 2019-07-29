@@ -21,9 +21,9 @@ public:
 
 	/* Methods */
 	// `distance()` uses tile coordinates [0..255], not to be confused with `Coord` (sixteenth-pixel precision)
-	inline static uint8_t distance(Entity& one, Entity& two) = { return distance(one.x, one.y, two.x, two.y); }
-	inline static uint8_t distance(Tile_Coord x, Tile_Coord y, Entity& entity) = { return distance(x, y, entity.x, entity.y); }
-	static uint8_t distance(Tile_Coord x1, Tile_Coord y1, Tile_Coord x2, Tile_Coord y2);
+	inline static uint16_t distance(Entity& one, Entity& two) = { return distance(one.x, one.y, two.x, two.y); }
+	inline static uint16_t distance(Tile_Coord x, Tile_Coord y, Entity& entity) = { return distance(x, y, entity.x, entity.y); }
+	static uint16_t distance(Tile_Coord x1, Tile_Coord y1, Tile_Coord x2, Tile_Coord y2);
 
 
 	/* Properties */
