@@ -34,3 +34,37 @@ tiles[]
 Mode:
 =================
 Camera:
+=================
+
+List of Maze candidates:
+	Classic
+		Pac-Man (1)
+		Ms. Pac-Man (4)
+		"Original Prototype" (1)
+	World
+		Pac-Man World (6x3)
+		Pac-Man World 2 (6 biomes, 15)
+		Pac-Man World 3 (17)
+	"Plus"
+		Pac-Mania (4, effectively 3)
+		Pac-Man Arrangement (23)
+
+Unlockables:
+	Mazes
+	Games
+		Super Pac-Man
+		Pac-Man & Chomp Chomp (Pac & Pal)
+		Baby Pac-Man
+	Skins
+		Vintage
+			Ms. Pac-Man
+			Pac-Mania
+			Dig Dug
+			Rally-X
+			Mappy
+			Galaga
+			Gaplus
+		Advanced
+			Wireframe
+			Reversed (You're a yellow ghost vs. colored Pac-Men)
+			Gem
