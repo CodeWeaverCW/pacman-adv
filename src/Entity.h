@@ -16,7 +16,7 @@ class Entity {
 public:
 	/* Constructors / Destructor */
 	Entity();
-	~Entity() = {};
+	~Entity() = {}
 
 
 	/* Methods */
