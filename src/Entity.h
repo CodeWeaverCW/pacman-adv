@@ -20,6 +20,8 @@ public:
 
 
 	/* Methods */
+	virtual void processMovement() = {}	// Calculate any movement for this tick
+
 	// `distance()` uses tile coordinates [0..255], not to be confused with `Coord` (sixteenth-pixel precision)
 	inline static uint16_t distance(Entity& one, Entity& two) = { return distance(one.x, one.y, two.x, two.y); }
 	inline static uint16_t distance(Tile_Coord x, Tile_Coord y, Entity& entity) = { return distance(x, y, entity.x, entity.y); }
