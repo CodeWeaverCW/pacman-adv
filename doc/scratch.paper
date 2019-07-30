@@ -7,12 +7,15 @@ Entity
 		Super Pellet (Super Pac-Man)
 		etc
 Coord
+Direction
 SysDep
 Maze
+Tile
 Mode
 Camera
 =================
 Entity:
+Direction
 Graphic (static or animated sprite)
 =================
 Fruit:
@@ -24,12 +27,24 @@ Powerup:
 =================
 SysDep:
 =================
+Direction:
+#define directions (const masks)
+Entity: friend isFacing()
+=================
 Maze:
-tiles[]
-
-#define directions
-
 "Waypoints"? (entity spawn locations)
+
+tick()
+	; called (by some kind of `main()`) SysDep::ticksPerFrame times per frame
+		; static ticks = 0; while (local ticksPerFrame--) { tick(); } ticks += ticksPerFrame;
+	; Calls all the per-tick handlers (in Maze and its constituents e.g. Entities)
+=================
+Tile:
+uint16_t
+	Special flags
+	Pac-Man directions
+	Ghost directions
+Extraction methods
 =================
 Mode:
 =================
