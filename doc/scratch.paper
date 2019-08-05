@@ -1,3 +1,7 @@
+WARNING: SPOILERS AHEAD!
+Design notes all go here.
+
+
 Entity
 	Ghost
 	Pac-Man*
@@ -18,6 +22,12 @@ Entity:
 Direction
 Graphic (static or animated sprite)
 =================
+Ghost:
+uint16_t dot_counter
+=================
+Pac-Man:
+eat()	; Called every time a dot is eaten
+=================
 Fruit:
 Enum fruits
 static fruit[] table
@@ -26,6 +36,7 @@ Powerup:
 
 =================
 SysDep:
+(Look into error handling for calls that fail)
 =================
 Direction:
 #define directions (const masks)
@@ -38,6 +49,12 @@ tick()
 	; called (by some kind of `main()`) SysDep::ticksPerFrame times per frame
 		; static ticks = 0; while (local ticksPerFrame--) { tick(); } ticks += ticksPerFrame;
 	; Calls all the per-tick handlers (in Maze and its constituents e.g. Entities)
+
+struct {
+	const uint16_t total;
+	uint16_t eaten;
+	uint16_t remaining;
+} dots
 =================
 Tile:
 uint16_t
@@ -51,11 +68,26 @@ Mode:
 Camera:
 =================
 
-List of Maze candidates:
+Main Menu:
+	Story
+		Select Round (up to last unlocked)
+			Play
+		Continue [play from latest round]
+	Free Play
+		Choose Maze > Choose Options (Difficulty, Lives, AI, Bosses, etc) > [play]
+	Extras
+		Skins [select]
+		Games [play]
+		Stats [view]
+	Settings (if any; mostly system-specific)
+The first time a player loads the game, it opens with the original arcade "attract mode".
+The first four levels of classic Pac-Man are played. After reaching the fifth level, the "real" menus become accessible
+and the mode can be stopped/started.
+
+List of Maze candidates (Story):
 	Classic
 		Pac-Man (1)
 		Ms. Pac-Man (4)
-		"Original Prototype" (1)
 	World
 		Pac-Man World (6x3)
 		Pac-Man World 2 (6 biomes, 15)
@@ -66,13 +98,15 @@ List of Maze candidates:
 
 Unlockables:
 	Mazes
+		"Original Prototype"
 	Games
 		Super Pac-Man
 		Pac-Man & Chomp Chomp (Pac & Pal)
 		Baby Pac-Man
+		Pac-Attack
 	Skins
 		Vintage
-			Ms. Pac-Man
+			Midway (Ms. Pac-Man, Pac-Man Plus ghosts)
 			Pac-Mania
 			Dig Dug
 			Rally-X
@@ -80,6 +114,56 @@ Unlockables:
 			Galaga
 			Gaplus
 		Advanced
+			Crazy Otto
+			Atari 2600
 			Wireframe
 			Reversed (You're a yellow ghost vs. colored Pac-Men)
+			Wolfenstein
 			Gem
+			Snake (Tiles are colored in by entity, leaving a trail; unlocked after beating Story mode)
+
+Something to keep gameplay fresh: Pac-Man's end position for a given round, is his start position for the next round
+	(i.e. don't move Pac-Man back to the center of the maze between rounds)
+
+Fruits (33, no duplicates):
+	Pac-Man (8)
+		Cherry
+		Strawberry
+		Orange
+		Apple
+		Grapes (Melon)
+		Galaxian
+		Bell
+		Key
+	Ms. Pac-Man (3)
+		Pretzel
+		Pear
+		Banana
+	Pac-Man Plus (5)
+		Cola
+		Cocktail
+		Pea pod
+		Bread
+		Pancakes
+	Pac-Mania (5)
+		Peach
+		Candy
+		Coffee
+		Ice cream
+		Hamburger
+	Pac-Man Arrangement (4)
+		Pineapple
+		Mushroom
+		Eggplant
+		Padlock
+	Baby Pac-Man (1)
+		Watermelon (slice)
+	Jr. Pac-Man (7)
+		Bike
+		Kite
+		Drum
+		Balloon
+		Train
+		Cat
+		Root beer
+
