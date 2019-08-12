@@ -27,7 +27,7 @@ class Ghost : public Entity {
 public:
 	/* Constructors / Destructor */
 	Ghost();	// Called when Maze is initialized
-	~Ghost() = {}
+	~Ghost() {}
 
 
 	/* Methods */
@@ -70,4 +70,4 @@ protected:
 	/* Special states */
 	uint16_t fright = 0;	// Number of ticks of fright remaining (not frightened when 0)
 	bool eaten = false;	// Going back to ghost house?
-}
+};

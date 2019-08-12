@@ -17,11 +17,11 @@ class Entity {
 public:
 	/* Constructors / Destructor */
 	Entity();
-	~Entity() = {}
+	~Entity() {}
 
 
 	/* Methods */
-	virtual void processMovement() = {}	// Calculate any movement for this tick
+	virtual void processMovement() {}	// Calculate any movement for this tick
 
 	// `distance()` uses tile coordinates [0..255], not to be confused with `Coord` (sixteenth-pixel precision)
 	inline static uint16_t distance(Entity& one, Entity& two) = { return distance(one.pos.x, one.pos.y, two.pos.x, two.pos.y); }
@@ -66,4 +66,4 @@ protected:
 	between Entity movement directions and Maze tile path directions.
 	*/
 	Directions direction;
-}
+};

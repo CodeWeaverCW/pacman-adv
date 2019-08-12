@@ -15,7 +15,7 @@ class Maze {
 public:
 	/* Constructors / Destructor */
 	Maze(const char* filename);
-	~Maze() = {}
+	~Maze() {}
 
 	/* Methods */
 	void tick();	// Process game state for this tick
@@ -25,4 +25,4 @@ private:
 	/* Data */
 	Tile tiles[];
 	Entity* entities[];
-}
+};
