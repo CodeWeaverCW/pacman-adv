@@ -5,13 +5,14 @@ Design notes all go here.
 Entity
 	Ghost
 	Pac-Man*
+	Boss
 	Fruit
 	Powerup
 		Energizer
 		Super Pellet (Super Pac-Man)
 		etc
 Coord
-Direction
+Directions
 SysDep
 Maze
 Tile
@@ -19,14 +20,16 @@ Mode
 Camera
 =================
 Entity:
-Direction
+Should `speed` be of type `Coord`? *Should Coords be signed?*
 Graphic (static or animated sprite)
 =================
 Ghost:
-uint16_t dot_counter
 =================
 Pac-Man:
 eat()	; Called every time a dot is eaten
+=================
+Boss:
+uint8_t hit_points
 =================
 Fruit:
 Enum fruits
@@ -58,12 +61,17 @@ struct {
 =================
 Tile:
 uint16_t
-	Special flags
-	Pac-Man directions
-	Ghost directions
+	Special flags : 8
+		Ghost house below
+		Dot eaten (1 = dot, 0 = eaten)
+	Pac-Man directions : 4
+	Ghost directions : 4
 Extraction methods
 =================
-Mode:
+Mode:	; Configurable in Free Play
+uint32_t extra_life_score
+friend init_ghosts()
+friend init_pacman()
 =================
 Camera:
 =================
