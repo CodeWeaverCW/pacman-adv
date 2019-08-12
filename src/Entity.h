@@ -9,6 +9,7 @@ maze data.
 */
 
 #include "Coord.h"
+#include "Directions.h"
 #include "Maze.h"
 
 
@@ -23,8 +24,8 @@ public:
 	virtual void processMovement() = {}	// Calculate any movement for this tick
 
 	// `distance()` uses tile coordinates [0..255], not to be confused with `Coord` (sixteenth-pixel precision)
-	inline static uint16_t distance(Entity& one, Entity& two) = { return distance(one.x, one.y, two.x, two.y); }
-	inline static uint16_t distance(Tile_Coord x, Tile_Coord y, Entity& entity) = { return distance(x, y, entity.x, entity.y); }
+	inline static uint16_t distance(Entity& one, Entity& two) = { return distance(one.pos.x, one.pos.y, two.pos.x, two.pos.y); }
+	inline static uint16_t distance(Tile_Coord x, Tile_Coord y, Entity& entity) = { return distance(x, y, entity.pos.x, entity.pos.y); }
 	static uint16_t distance(Tile_Coord x1, Tile_Coord y1, Tile_Coord x2, Tile_Coord y2);
 
 
@@ -36,16 +37,16 @@ public:
 
 protected:
 	// Direction
-	using Maze::Direction;
-	inline bool isFacing(Direction dir) = { return direction & dir; }
+	inline bool isFacing(Directions dir) = { return direction & dir; }
 
 
-private:
 	/* Data */
 	/* Position */
-	Coord x;
-	Coord y;
-	Coord z;
+	struct Position {
+		Coord x;
+		Coord y;
+		Coord z;
+	} pos;
 
 	/* Speed
 	Speed is measured in sixteenth-pixels per tick.
@@ -61,8 +62,8 @@ private:
 	For example, a direction of 0b0100 means the entity is moving left.
 	A direction of e.g. 0b1001 (up, right) is possible, such as when Pac-Man is cornering.
 
-	Direction constants (bitmasks) are defined in the Maze class, as a tile's possible directions
-	are listed in the same format.
+	Direction constants (bitmasks) are defined in the Directions.h header, to ensure consistency
+	between Entity movement directions and Maze tile path directions.
 	*/
-	uint8_t direction;
+	Directions direction;
 }

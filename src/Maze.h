@@ -7,6 +7,7 @@ Author: Logan "CodeWeaver" Hall
 */
 
 #include "Coord.h"
+#include "Directions.h"
 #include "Entity.h"
 
 
