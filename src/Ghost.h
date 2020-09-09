@@ -11,6 +11,7 @@ a class hierarchy is appropriate so that:
 	2) ghosts have a common interface defined by `Ghosts.h`
 */
 
+#pragma once
 #include "Coord.h"
 #include "Directions.h"
 #include "Entity.h"

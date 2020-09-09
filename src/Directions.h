@@ -19,6 +19,7 @@ to a wall). For Entities, the '1' bit denotes where they are facing; they can
 have two '1' bits in the case of diagonal movement.
 */
 
+#pragma once
 
 // Cardinals
 #define DIRECTION_UP	8

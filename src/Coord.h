@@ -22,6 +22,7 @@ This type exists to abstract the exact precision away and allow different
 routines to examine their respective coordinate systems.
 */
 
+#pragma once
 
 typedef uint16_t Coord;
 typedef uint16_t Pixel_Coord;

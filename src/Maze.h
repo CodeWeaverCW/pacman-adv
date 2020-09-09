@@ -6,6 +6,7 @@ Author: Logan "CodeWeaver" Hall
 
 */
 
+#pragma once
 #include "Coord.h"
 #include "Directions.h"
 #include "Entity.h"

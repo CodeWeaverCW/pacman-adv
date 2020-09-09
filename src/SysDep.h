@@ -19,6 +19,7 @@ be ported, while platform-specific macros are discretionary (for e.g. platform-
 exclusive features).
 */
 
+#pragma once
 
 namespace SysDep {
 	/* Utilities */

@@ -8,6 +8,7 @@ Pac-Man, the ghosts, fruit, and powerups. This does *not* include dots, which ar
 maze data.
 */
 
+#pragma once
 #include "Coord.h"
 #include "Directions.h"
 #include "Maze.h"
