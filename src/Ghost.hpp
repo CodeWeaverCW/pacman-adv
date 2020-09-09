@@ -1,5 +1,5 @@
 /*
-	Ghost.h
+	Ghost.hpp
 Author: Logan "CodeWeaver" Hall
 2019-08-12
 
@@ -8,13 +8,13 @@ derivative class (e.g. Blinky, Pinky, Inky, & Clyde). Although these will be
 singleton objects in most cases (i.e. there's only one Blinky, one Inky, etc),
 a class hierarchy is appropriate so that:
 	1) ghosts' states can be constructed and destructed per-maze
-	2) ghosts have a common interface defined by `Ghosts.h`
+	2) ghosts have a common interface defined by `Ghosts.hpp`
 */
 
 #pragma once
-#include "Coord.h"
-#include "Directions.h"
-#include "Entity.h"
+#include "Coord.hpp"
+#include "Directions.hpp"
+#include "Entity.hpp"
 
 #define MAX_WAVES 7
 

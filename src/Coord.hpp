@@ -1,5 +1,5 @@
 /*
-	Coord.h
+	Coord.hpp
 Author: Logan "CodeWeaver" Hall
 2019-07-28
 

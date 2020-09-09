@@ -4,8 +4,8 @@ Author: Logan "CodeWeaver" Hall
 2019-07-29
 */
 
-#include "Entity.h"
-#include "Coord.h"
+#include "Entity.hpp"
+#include "Coord.hpp"
 
 
 static uint16_t Entity::distance(Tile_Coord x1, Tile_Coord y1, Tile_Coord x2, Tile_Coord y2) {

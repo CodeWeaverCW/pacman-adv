@@ -1,5 +1,5 @@
 /*
-	Entity.h
+	Entity.hpp
 Author: Logan "CodeWeaver" Hall
 2019-07-23
 
@@ -9,9 +9,9 @@ maze data.
 */
 
 #pragma once
-#include "Coord.h"
-#include "Directions.h"
-#include "Maze.h"
+#include "Coord.hpp"
+#include "Directions.hpp"
+#include "Maze.hpp"
 
 
 class Entity {
@@ -63,7 +63,7 @@ protected:
 	For example, a direction of 0b0100 means the entity is moving left.
 	A direction of e.g. 0b1001 (up, right) is possible, such as when Pac-Man is cornering.
 
-	Direction constants (bitmasks) are defined in the Directions.h header, to ensure consistency
+	Direction constants (bitmasks) are defined in the Directions.hpp header, to ensure consistency
 	between Entity movement directions and Maze tile path directions.
 	*/
 	Directions direction;

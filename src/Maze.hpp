@@ -1,5 +1,5 @@
 /*
-	Maze.h
+	Maze.hpp
 Author: Logan "CodeWeaver" Hall
 2019-07-29
 
@@ -7,9 +7,9 @@ Author: Logan "CodeWeaver" Hall
 */
 
 #pragma once
-#include "Coord.h"
-#include "Directions.h"
-#include "Entity.h"
+#include "Coord.hpp"
+#include "Directions.hpp"
+#include "Entity.hpp"
 
 
 class Maze {

@@ -6,7 +6,7 @@ Author: Logan "CodeWeaver" Hall
 Any mutual code between all ghosts.
 */
 
-#include "Ghost.h"
+#include "Ghost.hpp"
 
 
 /*
